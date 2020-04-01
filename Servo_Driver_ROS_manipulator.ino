@@ -27,12 +27,20 @@ ros::NodeHandle  nh;
 void servo1Cb( const sensor_msgs::JointState& msg){
 
 
-double a1 = map(msg.position[0]*100,-314, 314, 0, 120);
-double a2 = map(msg.position[1]*100,-314, 314, 80, 180);
-double a3 = map(msg.position[2]*100, 0, 314, 180, 0);
-double a4 = map(msg.position[3]*100, 0, 314, 180, 0);
-double a5 = map(msg.position[4]*100, 0, 314, 180, 0);
-double a6 = map(msg.position[5]*100, 0, 314, 180, 0);
+//double a1 = map(msg.position[0]*100,-314, 314, 0, 120);
+//double a2 = map(msg.position[1]*100,-314, 314, 80, 180);
+//double a3 = map(msg.position[2]*100, 0, 314, 180, 0);
+//double a4 = map(msg.position[3]*100, 0, 314, 180, 0);
+//double a5 = map(msg.position[4]*100, 0, 314, 180, 0);
+//double a6 = map(msg.position[5]*100, 0, 314, 180, 0);
+
+//Value between 0-180
+double a1 = msg.position[0];
+double a2 = msg.position[1];
+double a3 = msg.position[2];
+double a4 = msg.position[3];
+double a5 = msg.position[4];
+double a6 = msg.position[5];
 
 pwm.setPWM(0, 0, pulseWidth(a1));
 pwm.setPWM(1, 0, pulseWidth(a2));
